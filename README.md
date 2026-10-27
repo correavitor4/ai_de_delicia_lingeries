@@ -55,30 +55,30 @@ O build estático pronto para publicação será gerado na pasta `out/`.
 
 ## 🌐 Como Publicar no GitHub Pages
 
-Você tem **duas formas fáceis** de publicar:
+Você tem **duas formas práticas** de publicar:
 
-### Opção 1: Automático via GitHub Actions (Recomendada)
-1. Crie um repositório no GitHub (por exemplo, `ai_de_delicia_lingeries`).
-2. Faça commit e push do projeto para a branch `main`:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: landing page Ai Que Delícia Lingeries"
-   git branch -M main
-   git remote add origin https://github.com/<SEU-USUARIO>/ai_de_delicia_lingeries.git
-   git push -u origin main
-   ```
-3. No seu repositório no GitHub, vá em **Settings** > **Pages**.
-4. Em **Build and deployment** > **Source**, selecione **GitHub Actions**.
-5. Pronto! O workflow [.github/workflows/deploy.yml](file:///home/vitor/projects/ai_de_delicia_lingeries/.github/workflows/deploy.yml) cuidará do build e publicação automaticamente. Seu site estará online em minutos em:
-   `https://<SEU-USUARIO>.github.io/ai_de_delicia_lingeries/`
-
-### Opção 2: Publicação Manual com 1 Comando via `gh-pages`
-Também deixamos configurado o pacote `gh-pages` no `package.json`:
+### Opção 1: Publicação com 1 Comando (Mais Rápida e Fácil)
+Já deixamos tudo pronto com o pacote `gh-pages`:
 ```bash
 npm run deploy
 ```
-Esse comando faz o build, gera o arquivo `.nojekyll` e publica diretamente na branch `gh-pages` do seu repositório.
+Esse comando faz o build estático, gera o arquivo `.nojekyll` e publica automaticamente na branch `gh-pages` do seu repositório.
+Depois, no GitHub:
+1. Vá em **Settings** > **Pages**.
+2. Em **Build and deployment** > **Source**, selecione **Deploy from a branch**.
+3. Escolha a branch **`gh-pages`** / pasta **`/(root)`** e clique em **Save**.
+Pronto! Seu site estará no ar!
+
+---
+
+### Opção 2: Automático via GitHub Actions (CI/CD)
+Se o seu token Git/OAuth não tiver a permissão especial `workflow`, o GitHub bloqueia commits com a pasta `.github/workflows/` pelo terminal. Por isso, deixamos o modelo pronto em [deploy-workflow.yml.example](file:///home/vitor/projects/ai_de_delicia_lingeries/deploy-workflow.yml.example).
+
+Para ativar o GitHub Actions pelo próprio site do GitHub:
+1. Acesse seu repositório no GitHub: `https://github.com/correavitor4/ai_de_delicia_lingeries`.
+2. Vá na aba **Actions** > **Set up a workflow yourself**.
+3. Cole o conteúdo de [deploy-workflow.yml.example](file:///home/vitor/projects/ai_de_delicia_lingeries/deploy-workflow.yml.example) e clique em **Commit changes**.
+4. Em **Settings** > **Pages**, selecione **Source** como **GitHub Actions**.
 
 ---
 
