@@ -1,0 +1,28 @@
+{
+  "name": "ai-que-delicia-lingeries",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next build",
+    "predeploy": "npm run build && touch out/.nojekyll",
+    "deploy": "gh-pages -d out -t true"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.460.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "gh-pages": "^6.2.0",
+    "typescript": "^5.7.2"
+  }
+}
